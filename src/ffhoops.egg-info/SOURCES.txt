@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+src/ffhoops/__init__.py
+src/ffhoops/ffhoops.py
+src/ffhoops.egg-info/PKG-INFO
+src/ffhoops.egg-info/SOURCES.txt
+src/ffhoops.egg-info/dependency_links.txt
+src/ffhoops.egg-info/top_level.txt

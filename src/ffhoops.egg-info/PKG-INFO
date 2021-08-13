@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: ffhoops
+Version: 0.0.1
+Summary: A small example package
+Home-page: https://github.com/pypa/sampleproject
+Author: RW Hooper
+Author-email: author@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# hoops
+random helpers, etc
+
+
+# Build instructions:
+## Build Package
+python -m pip install --upgrade pip
+python -m pip install --upgrade build
+python -m build
+
+## Push build to repo
+git add -A
+git commit -m "some message"
+git push
+
+# install instructions
+pip install git+https://github.com/jmpdmnky/ffhoops
+
+## shortcut script for windows:
+./build.ps1 -message 'some message' -skipupdates -version 2 -git -install
+
