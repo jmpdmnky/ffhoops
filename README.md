@@ -1,5 +1,5 @@
-# hoops
-random helpers, etc
+# ffhoops
+wrapper for ffmpeg/probe
 
 
 # Build instructions:

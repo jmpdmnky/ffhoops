@@ -10,11 +10,11 @@ Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.8
+Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 
-# hoops
-random helpers, etc
+# ffhoops
+wrapper for ffmpeg/probe
 
 
 # Build instructions:

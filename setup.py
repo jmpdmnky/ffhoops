@@ -27,5 +27,5 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     #packages=setuptools.find_namespace_packages(include=['hoops.*'])
-    python_requires=">=3.8",
+    python_requires=">=3.6",
 )
