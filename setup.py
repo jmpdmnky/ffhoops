@@ -3,13 +3,13 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-with open("version.txt", "r", encoding="utf-8-sig") as fh:
-    version = fh.read()
-    print(version)
+# with open("version.txt", "r", encoding="utf-8-sig") as fh:
+#     version = fh.read()
+#     print(version)
 
 setuptools.setup(
     name="ffhoops",
-    version=version,
+    version='0.0.1',#version,
     author="RW Hooper",
     author_email="author@example.com",
     description="A small example package",
