@@ -40,6 +40,9 @@ class ffhoops:
         args += [file_path]
         p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = p.communicate()
+        
+        if err:
+            raise Exception(err) # TODO: make this better
 
         file_data = json.loads(out)
 
@@ -52,3 +55,5 @@ if __name__ == '__main__':
     audio_file = ffhoops.ffprobe(test_file)
 
     print(audio_file.format)
+
+    print(audio_file.data)
