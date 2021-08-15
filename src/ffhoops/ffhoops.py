@@ -5,7 +5,7 @@ class ffhoops:
 
     def __init__(self, file_path='', data={}, raw_ffprobe={}):
         self.file_path = file_path
-        self.data = raw_ffprobe
+        self.raw_meta = raw_ffprobe
         #self._raw_ffprobe_data = raw_ffprobe
 
         if raw_ffprobe:
