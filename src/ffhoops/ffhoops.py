@@ -23,6 +23,8 @@ class ffhoops:
             self.channel_layout = data['streams'][0]['channel_layout']
         except:
             self.channel_layout = 'mono'
+            # if mono, then 'channel_layout' is missing from raw
+            self.raw_meta['streams'][0]['channel_layout'] = self.channel_layout
 
         self.codec = data['streams'][0]['codec_name']
         self.codec_long = data['streams'][0]['codec_long_name']
@@ -36,6 +38,35 @@ class ffhoops:
     
     @classmethod
     def ffprobe(cls, file_path):
+        # args = "ffprobe -v error -show_format -of json -show_streams".split()
+        # args += [file_path]
+        # p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # out, err = p.communicate()
+        
+        # if err:
+        #     raise Exception(err) # TODO: make this better
+
+        # file_data = json.loads(out)
+
+        return cls(file_path=file_path, raw_ffprobe=cls._ffprobe(cls, file_path))
+
+    
+    @classmethod
+    def ffmpeg(cls, file_path, split_channel=False):
+
+        args = "ffmpeg -i".split()
+
+        # TODO
+
+        return cls(file_path=file_path, raw_ffprobe=cls._ffprobe(cls, file_path))
+
+
+    def read(self):
+        # TODO
+        pass
+
+
+    def _ffprobe(self, file_path):
         args = "ffprobe -v error -show_format -of json -show_streams".split()
         args += [file_path]
         p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -45,8 +76,8 @@ class ffhoops:
             raise Exception(err) # TODO: make this better
 
         file_data = json.loads(out)
-
-        return cls(file_path=file_data, raw_ffprobe=file_data)
+        
+        return file_data
 
 
 if __name__ == '__main__':
@@ -54,6 +85,19 @@ if __name__ == '__main__':
 
     audio_file = ffhoops.ffprobe(test_file)
 
+    print(audio_file.raw_meta)
+
     print(audio_file.format)
 
-    print(audio_file.data)
+    print(audio_file.channel_layout)
+
+
+    test_file = 'C:/Users/rwhoo/Desktop/Stuff/ffmpeg_test/test/audio/mono.wav'
+
+    audio_file = ffhoops.ffprobe(test_file)
+
+    print(audio_file.raw_meta)
+
+    print(audio_file.format)
+
+    print(audio_file.channel_layout)
