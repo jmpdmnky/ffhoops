@@ -85,7 +85,7 @@ class ffhoops:
         args = "ffmpeg -i ".split()
         args += [audio_in]
         args += [audio_out] # TODO have a default outfile?
-        args += ['-y']
+        args += ['-y', '-loglevel', 'quiet']
 
         p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = p.communicate()
