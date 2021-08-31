@@ -79,6 +79,22 @@ class ffhoops:
         
         return file_data
 
+    
+    def transcode(self, audio_in, audio_out):
+        # TODO: support other formats
+        args = "ffmpeg -i ".split()
+        args += [audio_in]
+        args += [audio_out] # TODO have a default outfile?
+        args += ['-y']
+
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        
+        if err:
+            raise Exception(err) # TODO: make this better
+
+        return 
+
 
 if __name__ == '__main__':
     test_file = 'C:/Users/rwhoo/Desktop/Stuff/ffmpeg_test/test/audio/stereo-test.mp3'
