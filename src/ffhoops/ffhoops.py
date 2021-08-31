@@ -84,7 +84,7 @@ class ffhoops:
     def transcode(self, audio_in='', audio_out=''):
         # TODO: support other formats
         if not audio_in:
-            audio_in = self.audio_file
+            audio_in = self.file_path
 
         args = "ffmpeg -i ".split()
         args += [audio_in]
@@ -98,7 +98,7 @@ class ffhoops:
         if err:
             raise Exception(err) # TODO: make this better
 
-        return 
+        return out
 
 
 if __name__ == '__main__':
