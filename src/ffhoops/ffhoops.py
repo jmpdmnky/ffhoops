@@ -12,6 +12,7 @@ class ffhoops:
             #self._raw_ffprobe_data = raw_ffprobe
             self._handle_raw_ffprobe_data(raw_ffprobe)
 
+
     def _handle_raw_ffprobe_data(self, data):
         ## things we might care about
 
@@ -80,12 +81,16 @@ class ffhoops:
         return file_data
 
     
-    def transcode(self, audio_in, audio_out):
+    def transcode(self, audio_in='', audio_out=''):
         # TODO: support other formats
+        if not audio_in:
+            audio_in = self.audio_file
+
         args = "ffmpeg -i ".split()
         args += [audio_in]
         args += [audio_out] # TODO have a default outfile?
-        args += ['-y', '-loglevel', 'quiet']
+        args += ['-y']
+        args += ['-loglevel', 'error'] # TODO: this hides logs, leaves errors.  need to verify if this works
 
         p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = p.communicate()

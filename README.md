@@ -14,6 +14,7 @@ git commit -m "some message"
 git push
 
 # install instructions
+pip uninstall ffhoops
 pip install git+https://github.com/jmpdmnky/ffhoops
 
 ## shortcut script for windows:
